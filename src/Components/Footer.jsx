@@ -3,7 +3,14 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            Foot
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
     );
 };
