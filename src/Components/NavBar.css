@@ -1,0 +1,4 @@
+.navbar-navs.active {
+    border: 2px dashed #007FFF;
+    font-weight: 600;
+}
