@@ -37,7 +37,7 @@ const Navbar = () => {
 
             {/* Right Section: Login Button */}
             <div className="navbar-end">
-                <Link className="btn btn-sm text-white btn-primary" to="/auth/login">Login</Link>
+                <Link className="btn btn-sm md:btn-md text-white btn-primary" to="/auth/login">Login</Link>
             </div>
         </div>
     );

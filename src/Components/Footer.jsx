@@ -8,7 +8,7 @@ import Logo from './FooterLogo';
 const Footer = () => {
 
     return (
-        <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
+        <footer className="footer sm:footer-horizontal bg-[#000018] text-neutral-content p-10">
             <aside className='space-y-1 md:space-y-2'>
                 <Link className="flex text-lg md:text-xl items-center" to={"/"}>
                     <Logo></Logo>
