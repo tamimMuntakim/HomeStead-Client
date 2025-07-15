@@ -1,18 +1,32 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
-import { AuthContext } from '../Contexts/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import Lottie from 'lottie-react';
 import LoginLottie from "../assets/Lotties/login_lottie.json"
+import useAuth from '../Hooks/useAuth';
+import useAxios from '../Hooks/useAxios';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const Login = () => {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const { logIn, googleSignIn } = use(AuthContext);
+    const { logIn, googleSignIn } = useAuth();
+    const axiosInstance = useAxios();
+    const queryClient = useQueryClient();
 
     const location = useLocation();
     const navigate = useNavigate();
+
+    const saveUserMutation = useMutation({
+        mutationFn: async (userData) => {
+            const res = await axiosInstance.post("/users", userData);
+            return res.data;
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries(["users"]);
+        }
+    });
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -39,26 +53,40 @@ const Login = () => {
             })
     }
 
-    const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = async () => {
         setError("");
-        googleSignIn()
-            .then(() => {
-                Swal.fire({
-                    icon: "success",
-                    title: "Successfully Logged In!!!",
-                    timer: 1500
-                });
-                navigate(`${location.state ? location.state : "/"}`);
-            })
-            .catch((error) => {
-                setError(error.code);
-                Swal.fire({
-                    icon: "error",
-                    title: "Please try again !!",
-                    timer: 1500
-                });
+
+        try {
+            const result = await googleSignIn();
+            const user = result.user;
+
+            const userData = {
+                userDisplayName: user.displayName,
+                userEmail: user.email,
+                createdAt: user.metadata.creationTime,
+                role: "user"
+            };
+
+            const checkRes = await axiosInstance.get(`/users?email=${user.email}`);
+            if (!checkRes.data?.userEmail) {
+                saveUserMutation.mutate(userData);
+            }
+
+            Swal.fire({
+                icon: "success",
+                title: "Successfully Logged In!!!",
+                timer: 1500
             });
-    }
+            navigate("/");
+        } catch (err) {
+            setError(err.code);
+            Swal.fire({
+                icon: "error",
+                title: "Please try again !!",
+                timer: 1500
+            });
+        }
+    };
 
     return (
         <div className="flex justify-center py-8 items-center bg-white rounded-md">

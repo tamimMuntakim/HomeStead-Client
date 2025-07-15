@@ -1,16 +1,35 @@
-import { TbFaceIdError } from "react-icons/tb";
-import { Link } from 'react-router';
-import { IoArrowBackCircleSharp } from "react-icons/io5";
+// src/pages/ErrorPage.jsx (or src/components/ErrorPage.jsx)
+import React from 'react';
+import { FaExclamationTriangle } from 'react-icons/fa'; // A common warning/error icon
+import { Link } from 'react-router'; // Assuming you use react-router-dom for navigation
+import { IoChevronBackCircleOutline } from "react-icons/io5";
 
 const ErrorPage = () => {
-
     return (
-        <div className='w-11/12 md:container mx-auto min-h-screen'>
-            <div className="translate-y-1/2 md:translate-y-1/3 bg-base-200 rounded-2xl w-full md:w-[40%] mx-auto flex flex-col justify-center items-center py-8 px-4 md:px-8 shadow-md shadow-red-100 text-center">
-                <div className='bg-red-500 rounded-xl shadow-md shadow-red-200'><TbFaceIdError className='text-white w-[50px] md:w-[150px] h-auto' /></div>
-                <span className='text-lg md:text-2xl font-bold text-red-500 mt-4 mb-2 md:mt-8 md:mb-4'>404 - page not found</span>
-                <span className='font-bold'>Oops! Something went wrong....</span>
-                <Link to="/"><button className="btn rounded-4xl btn-accent font-bold px-4 mt-4 md:px-8 px-4 mt-4 md:mt-8 text-white"><IoArrowBackCircleSharp className='w-[25px] md:w-[30px] h-auto' />Back to Home</button></Link>
+        // Main container: min-height of screen, flexbox for centering content
+        <div className="min-h-screen flex items-center justify-center text-gray-800 p-4 bg-[#e8f0ff]">
+            <title>HomeStead || 404 Not Found</title> {/* Hardcoded title */}
+
+            {/* Error Content Card */}
+            <div className="text-center bg-white shadow-xl rounded-lg p-8 md:p-12 max-w-lg w-full">
+                {/* Error Icon */}
+                <FaExclamationTriangle className="text-red-600 text-6xl md:text-8xl mx-auto mb-6 animate-pulse-slow" />
+
+                {/* Hardcoded 404 Status Code / Main Title */}
+                <h1 className="text-3xl md:text-5xl font-bold text-red-500 mb-4">
+                    404 Not Found
+                </h1>
+
+                {/* Hardcoded Error Message */}
+                <p className="md:text-lg text-gray-700 mb-8 leading-relaxed">
+                    The page you are looking for does not exist.
+                </p>
+
+                {/* Call to Action Button */}
+                <Link to="/" className="text-primary flex items-center justify-center gap-2 link link-hover text-lg md:text-xl">
+                    <IoChevronBackCircleOutline />
+                    Go to Home
+                </Link>
             </div>
         </div>
     );

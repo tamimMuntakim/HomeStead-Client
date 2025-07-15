@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router';
 import "./NavBar.css"
 import Logo from './Logo';
-import { AuthContext } from '../Contexts/AuthContext';
 import { Tooltip } from 'react-tooltip';
 import Swal from 'sweetalert2';
+import useAuth from "../Hooks/useAuth";
+import useUserRole from '../Hooks/useUserRole';
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
+    const { role, isLoading: roleLoading } = useUserRole(user?.email);
     const navLinks =
         <>
             <li><NavLink className="navbar-navs" to="/">Home</NavLink></li>
@@ -57,13 +59,15 @@ const Navbar = () => {
             </div>
 
             {/* Right Section: Login Button */}
-            <div className="navbar-end">
+            <div className="navbar-end text-xs md:text-sm">
                 {user ?
                     (
                         <>
-                            <a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
+                            <a data-tooltip-id="my-tooltip" data-tooltip-content={
+                                roleLoading ? user.displayName : `${user.displayName} - ${role}`
+                            }>
                                 <div className="avatar avatar-online">
-                                    <div className="w-7 md:w-9 rounded-full">
+                                    <div className="w-7 md:w-9 h-auto rounded-full">
                                         <img src={user.photoURL} />
                                     </div>
                                 </div>
