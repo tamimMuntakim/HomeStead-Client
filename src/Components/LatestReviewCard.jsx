@@ -21,7 +21,7 @@ const LatestReviewCard = ({ reviewerName, reviewerImage, reviewDescription, prop
                 </div>
                 {/* Reviewer Name */}
                 <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-800">{reviewerName}</h3>
+                    <h3 className="md:text-xl font-semibold text-gray-800">{reviewerName}</h3>
                     <p className="text-xs md:text-sm text-gray-500 mt-1">Reviewed for:</p>
                     {/* Property Title */}
                     <p className="text-sm md:text-md font-medium text-gray-900">{propertyTitle}</p>
@@ -29,7 +29,7 @@ const LatestReviewCard = ({ reviewerName, reviewerImage, reviewDescription, prop
             </div>
 
             {/* Review Description */}
-            <p className="text-gray-700 leading-relaxed mb-2 md:mb-4 italic">
+            <p className="text-gray-700 leading-relaxed mb-2 md:mb-4 italic text-sm md:text-base">
                 "{reviewDescription}"
             </p>
 

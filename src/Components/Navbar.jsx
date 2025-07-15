@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import "./NavBar.css"
 import Logo from './Logo';
+import { AuthContext } from '../Contexts/AuthContext';
+import { Tooltip } from 'react-tooltip';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
     const navLinks =
         <>
             <li><NavLink className="navbar-navs" to="/">Home</NavLink></li>
             <li><NavLink className="navbar-navs" to="/all-properties">All Properties</NavLink></li>
             <li><NavLink className="navbar-navs" to="/dashboard">Dashboard</NavLink></li>
         </>
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Successfully Logged out!!",
+                    timer: 1500
+                });
+            }).catch(() => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Please try again !!",
+                    timer: 1500
+                });
+            });
+    }
     return (
         <div className="navbar bg-white rounded-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden px-0 mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                     </div>
                     <ul
                         tabIndex={0}
@@ -37,7 +58,24 @@ const Navbar = () => {
 
             {/* Right Section: Login Button */}
             <div className="navbar-end">
-                <Link className="btn btn-sm md:btn-md text-white btn-primary" to="/auth/login">Login</Link>
+                {user ?
+                    (
+                        <>
+                            <a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
+                                <div className="avatar avatar-online">
+                                    <div className="w-7 md:w-9 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </div>
+                            </a>
+                            <Tooltip id="my-tooltip" />
+                            <button onClick={handleLogout} className='btn btn-error text-white btn-sm md:btn-md md:font-bold md:w-[100px] ml-2 md:ml-4'>Logout</button>
+                        </>)
+                    :
+                    (
+                        <Link to="/auth/login" className='btn btn-primary text-white btn-sm md:btn-md md:font-bold md:w-[100px]'>Login</Link>
+                    )
+                }
             </div>
         </div>
     );

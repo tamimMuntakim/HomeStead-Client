@@ -14,7 +14,7 @@ const HomeLayout = () => {
             <main className=''>
                 <Outlet></Outlet>
             </main>
-            <footer className='mt-4 md:mt-8'>
+            <footer className='mt-4 md:mt-8 bg-[#000018]'>
                 <Footer></Footer>
             </footer>
         </>
