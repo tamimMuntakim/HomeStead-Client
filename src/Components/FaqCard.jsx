@@ -1,7 +1,7 @@
 // src/components/FaqCard.jsx
 import React from 'react';
 
-const FaqCard = ({ faq, index }) => { // Receive index prop
+const FaqCard = ({ faq }) => { // Receive index prop
     return (
         // Use a unique name for each radio group based on the index
         <div className="collapse collapse-arrow join-item border-base-300 border-b-2 last:border-b-0 bg-white">

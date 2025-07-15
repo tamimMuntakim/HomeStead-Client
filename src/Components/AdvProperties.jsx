@@ -1,6 +1,7 @@
 // src/components/AdvProperties.jsx
 import React from 'react';
 import AdvPropertyCard from './AdvPropertyCard'; // Make sure the path is correct
+import { TbSpeakerphone } from "react-icons/tb";
 
 const AdvProperties = () => {
     // Hardcoded data for 4 placeholder properties
@@ -39,15 +40,15 @@ const AdvProperties = () => {
         <section className="py-10 bg-base-100">
             <div className="container mx-auto px-4">
                 {/* Heading */}
-                <h2 className="text-4xl font-bold text-center text-primary mb-3">
-                    Featured Properties
+                <h2 className="text-2xl md:text-4xl font-bold text-center text-primary mb-3 flex items-center justify-center">
+                    Advertized Properties <TbSpeakerphone className='hidden md:inline ml-1 md:ml-2'/>
                 </h2>
                 <p className="text-sm md:text-base text-center text-gray-600 mb-12 max-w-2xl mx-auto">
                     **Handpicked listings** for your next home or investment.
                 </p>
 
                 {/* Property Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                     {properties.map((property) => (
                         <AdvPropertyCard
                             key={property.id}

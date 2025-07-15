@@ -3,6 +3,7 @@ import Banner from '../Components/Banner';
 import AdvProperties from '../Components/AdvProperties';
 import LatestReviews from '../Components/LatestReveiws';
 import Faq from '../Components/Faq';
+import WhyChooseUs from '../Components/WhyChooseUs';
 
 const Home = () => {
     return (
@@ -12,6 +13,9 @@ const Home = () => {
             </section>
             <section id="adv-properties" className='w-11/12 md:container mx-auto rounded-md overflow-hidden mt-8 md:mt-16 shadow-xl'>
                 <AdvProperties></AdvProperties>
+            </section>
+            <section id="why-choose-us" className='w-11/12 md:container mx-auto rounded-md overflow-hidden mt-8 md:mt-16 shadow-xl'>
+                <WhyChooseUs></WhyChooseUs>
             </section>
             <section id="user-reviews" className='w-11/12 md:container mx-auto rounded-md overflow-hidden mt-8 md:mt-16 shadow-xl'>
                 <LatestReviews></LatestReviews>

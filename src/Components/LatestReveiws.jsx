@@ -2,6 +2,7 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee'; // Import Marquee
 import LatestReviewCard from './LatestReviewCard'; // Adjust path as needed
+import { FaHouseUser } from "react-icons/fa";
 
 const LatestReviews = () => {
     // Hardcoded data for at least 3 latest user reviews
@@ -46,11 +47,11 @@ const LatestReviews = () => {
         >
             <div className="container mx-auto px-4">
                 {/* Section Heading */}
-                <h2 className="text-4xl font-bold text-center text-white mb-3">
-                    What Our Users Say
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-3 flex items-center justify-center">
+                    What Our Users Say <FaHouseUser className='hidden md:inline ml-1 md:ml-2'/>
                 </h2>
                 {/* Subheading */}
-                <p className="text-sm md:text-base text-center text-slate-200 mb-12 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base text-center text-slate-200 mb-8 md:mb-12 max-w-2xl mx-auto">
                     Hear from our satisfied clients about their HomeStead experience.
                 </p>
 

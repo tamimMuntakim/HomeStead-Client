@@ -1,6 +1,7 @@
 // src/components/Faq.jsx
 import React from 'react';
 import FaqCard from './FaqCard'; // Ensure the path is correct
+import { FcQuestions } from "react-icons/fc";
 
 const Faq = () => {
     // Updated FAQ content relevant to real estate management
@@ -34,7 +35,7 @@ const Faq = () => {
     return (
         <section className="py-10 bg-base-200"> {/* Added a section wrapper for consistent padding/bg */}
             <div className="container mx-auto px-4">
-                <h2 className='text-4xl font-bold text-center text-primary mb-3'>Frequently Asked Questions</h2>
+                <h2 className='text-4xl font-bold text-center text-primary mb-3 flex items-center justify-center'>Frequently Asked Questions<FcQuestions className='hidden md:inline ml-1 md:ml-2'/></h2>
                 <p className="text-sm md:text-base text-center text-gray-500 mb-6 md:mb-12 max-w-2xl mx-auto">
                     Find quick answers to the most common questions about using HomeStead.
                 </p>
@@ -42,7 +43,7 @@ const Faq = () => {
                 <div className="join join-vertical w-full rounded-md md:rounded-xl overflow-hidden text-sm md:text-base border border-base-300">
                     {
                         faqs.map((faq, index) => (
-                            <FaqCard key={index} faq={faq} index={index} /> // Pass index for unique radio names
+                            <FaqCard key={index} faq={faq} /> // Pass index for unique radio names
                         ))
                     }
                 </div>
