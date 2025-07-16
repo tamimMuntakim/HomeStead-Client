@@ -8,6 +8,8 @@ import Register from "../Pages/Register";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import AddProperty from "../Pages/AddProperty";
 import MyProfile from "../Layouts/MyProfile";
+import MyAddedProperties from "../Pages/MyAddedProperties";
+import UpdatePropertyDetails from "../Pages/UpdatePropertyDetails";
 
 const router = createBrowserRouter(
     [
@@ -32,6 +34,14 @@ const router = createBrowserRouter(
                 {
                     path: "/dashboard/add-property",
                     element: <AddProperty></AddProperty>,
+                },
+                {
+                    path: "/dashboard/my-added-properties",
+                    element: <MyAddedProperties></MyAddedProperties>,
+                },
+                {
+                    path: "/dashboard/update-property-details/:id",
+                    element: <UpdatePropertyDetails></UpdatePropertyDetails>
                 },
             ]
         },

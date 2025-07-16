@@ -9,7 +9,6 @@ import useUserRole from '../Hooks/useUserRole';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    console.log(user);
     const { role, isLoading: roleLoading } = useUserRole(user?.email);
     const navLinks =
         <>
