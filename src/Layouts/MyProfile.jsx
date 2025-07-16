@@ -21,6 +21,8 @@ const MyProfile = () => {
                 return 'badge badge-success text-white badge-sm md:badge-md';
             case 'agent':
                 return 'badge badge-secondary text-white badge-sm md:badge-md';
+            case 'fraud':
+                return 'badge badge-warning text-white badge-sm md:badge-md';
             default:
                 return 'badge badge-primary text-white badge-sm md:badge-md';
         }

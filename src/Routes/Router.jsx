@@ -21,6 +21,12 @@ import OfferedProperties from "../Pages/OfferedProperties";
 import SoldProperties from "../Pages/SoldProperties";
 import ManageUsers from "../Pages/ManageUsers";
 import ManageReviews from "../Pages/ManageReviews";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import ForbiddenPage from "../Pages/ForbiddenPage";
+import UserRoute from "../PrivateRoutes/UserRoute";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
+import AgentRoute from "../PrivateRoutes/AgentRoute";
+
 
 const router = createBrowserRouter(
     [
@@ -34,17 +40,27 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/property-details/:id",
-                    element: <PropertyDetails></PropertyDetails>,
+                    element: <PrivateRoute>
+                        <PropertyDetails></PropertyDetails>
+                    </PrivateRoute>,
                 },
                 {
                     path: "/all-properties",
-                    element: <AllProperties></AllProperties>
+                    element: <PrivateRoute>
+                        <AllProperties></AllProperties>
+                    </PrivateRoute>,
+                },
+                {
+                    path: "/forbidden",
+                    element: <ForbiddenPage></ForbiddenPage>,
                 },
             ]
         },
         {
             path: "/dashboard",
-            element: <DashboardLayout></DashboardLayout>,
+            element: <PrivateRoute>
+                <DashboardLayout></DashboardLayout>
+            </PrivateRoute>,
             children: [
                 {
                     index: true,
@@ -52,51 +68,75 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/dashboard/my-wishlist",
-                    element: <MyWishlist></MyWishlist>,
+                    element: <UserRoute>
+                        <MyWishlist></MyWishlist>
+                    </UserRoute>,
                 },
                 {
                     path: "/dashboard/make-offer/:id",
-                    element: <MakeOffer></MakeOffer>,
+                    element: <UserRoute>
+                        <MakeOffer></MakeOffer>
+                    </UserRoute>,
                 },
                 {
                     path: "/dashboard/properties-bought",
-                    element: <PropertiesBought></PropertiesBought>,
+                    element: <UserRoute>
+                        <PropertiesBought></PropertiesBought>
+                    </UserRoute>,
                 },
                 {
                     path: "/dashboard/my-reviews",
-                    element: <MyReviews></MyReviews>,
+                    element: <UserRoute>
+                        <MyReviews></MyReviews>
+                    </UserRoute>,
                 },
                 {
                     path: "/dashboard/add-property",
-                    element: <AddProperty></AddProperty>,
+                    element: <AgentRoute>
+                        <AddProperty></AddProperty>
+                    </AgentRoute>,
                 },
                 {
                     path: "/dashboard/my-added-properties",
-                    element: <MyAddedProperties></MyAddedProperties>,
+                    element: <AgentRoute>
+                        <MyAddedProperties></MyAddedProperties>
+                    </AgentRoute>,
                 },
                 {
                     path: "/dashboard/update-property-details/:id",
-                    element: <UpdatePropertyDetails></UpdatePropertyDetails>
+                    element: <AgentRoute>
+                        <UpdatePropertyDetails></UpdatePropertyDetails>
+                    </AgentRoute>,
                 },
                 {
                     path: "/dashboard/sold-properties",
-                    element: <SoldProperties></SoldProperties>,
+                    element: <AgentRoute>
+                        <SoldProperties></SoldProperties>
+                    </AgentRoute>,
                 },
                 {
                     path: "/dashboard/offered-properties",
-                    element: <OfferedProperties></OfferedProperties>,
+                    element: <AgentRoute>
+                        <OfferedProperties></OfferedProperties>
+                    </AgentRoute>,
                 },
                 {
                     path: "/dashboard/manage-all-properties",
-                    element: <ManageProperties></ManageProperties>,
+                    element: <AdminRoute>
+                        <ManageProperties></ManageProperties>
+                    </AdminRoute>,
                 },
                 {
                     path: "/dashboard/manage-users",
-                    element: <ManageUsers></ManageUsers>,
+                    element: <AdminRoute>
+                        <ManageUsers></ManageUsers>
+                    </AdminRoute>,
                 },
                 {
                     path: "/dashboard/manage-reviews",
-                    element: <ManageReviews></ManageReviews>,
+                    element: <AdminRoute>
+                        <ManageReviews></ManageReviews>
+                    </AdminRoute>,
                 },
             ]
         },
