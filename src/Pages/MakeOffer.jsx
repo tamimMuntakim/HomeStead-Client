@@ -80,6 +80,7 @@ const MakeOffer = () => {
             propertyId: wishlistItem.propertyId,
             propertyTitle: wishlistItem.propertyTitle,
             propertyLocation: wishlistItem.propertyLocation,
+            propertyImage: wishlistItem.propertyImage,
             agentName: wishlistItem.agentName,
             buyerEmail: user.email,
             buyerName: user.displayName,
