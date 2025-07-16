@@ -10,6 +10,7 @@ import AddProperty from "../Pages/AddProperty";
 import MyProfile from "../Layouts/MyProfile";
 import MyAddedProperties from "../Pages/MyAddedProperties";
 import UpdatePropertyDetails from "../Pages/UpdatePropertyDetails";
+import ManageProperties from "../Pages/ManageProperties";
 
 const router = createBrowserRouter(
     [
@@ -42,6 +43,10 @@ const router = createBrowserRouter(
                 {
                     path: "/dashboard/update-property-details/:id",
                     element: <UpdatePropertyDetails></UpdatePropertyDetails>
+                },
+                {
+                    path: "/dashboard/manage-all-properties",
+                    element: <ManageProperties></ManageProperties>,
                 },
             ]
         },

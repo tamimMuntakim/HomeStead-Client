@@ -8,6 +8,7 @@ const DashboardMenu = () => {
             <li><NavLink to="/dashboard" className="dash-menu-navs" end>My Profile</NavLink></li>
             <li><NavLink to="/dashboard/add-property" className="dash-menu-navs">Add Property</NavLink></li>
             <li><NavLink to="/dashboard/my-added-properties" className="dash-menu-navs">My Added Properties</NavLink></li>
+            <li><NavLink to="/dashboard/manage-all-properties" className="dash-menu-navs">Manage Properties</NavLink></li>
         </ul>
     );
 };

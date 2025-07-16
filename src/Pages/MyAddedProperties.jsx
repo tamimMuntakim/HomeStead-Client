@@ -22,11 +22,14 @@ const MyAddedProperties = () => {
     }
 
     return (
-        <div className="grid gap-6 px-4 md:px-10 py-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {properties.map(property => (
-                <AddedPropertyCard key={property._id} property={property} />
-            ))}
-        </div>
+        <>
+            <h2 className="text-xl md:text-3xl font-bold mb-6 text-center text-primary mt-4 md:mt-8">My Added Properties</h2>
+            <div className="grid gap-6 px-4 md:px-10 py-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+                {properties.map(property => (
+                    <AddedPropertyCard key={property._id} property={property} />
+                ))}
+            </div>
+        </>
     );
 };
 

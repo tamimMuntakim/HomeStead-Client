@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
 import useAxios from '../Hooks/useAxios';
 import axios from 'axios';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
+import usePropertyById from '../Hooks/usePropertyById';
 
 const UpdatePropertyDetails = () => {
     const { id } = useParams();
@@ -19,13 +20,7 @@ const UpdatePropertyDetails = () => {
 
     const imgbbAPIKey = import.meta.env.VITE_imgbb_key;
 
-    const { data: property, isLoading } = useQuery({
-        queryKey: ['property', id],
-        queryFn: async () => {
-            const res = await axiosInstance.get(`/properties/${id}`);
-            return res.data;
-        }
-    });
+    const { data: property, isLoading } = usePropertyById(id);
 
     useEffect(() => {
         if (property?.image) setImageUrl(property.image);
