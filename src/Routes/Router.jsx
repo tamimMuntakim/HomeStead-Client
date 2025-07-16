@@ -16,6 +16,7 @@ import MyWishlist from "../Pages/MyWishlist";
 import PropertiesBought from "../Pages/PropertiesBought";
 import MyReviews from "../Pages/MyReviews";
 import MakeOffer from "../Pages/MakeOffer";
+import AllProperties from "../Pages/AllProperties";
 
 const router = createBrowserRouter(
     [
@@ -30,6 +31,10 @@ const router = createBrowserRouter(
                 {
                     path: "/property-details/:id",
                     element: <PropertyDetails></PropertyDetails>,
+                },
+                {
+                    path: "/all-properties",
+                    element: <AllProperties></AllProperties>
                 },
             ]
         },
