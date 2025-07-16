@@ -72,10 +72,10 @@ const AddedPropertyCard = ({ property }) => {
                         <MdAccessTimeFilled /> Pending
                     </span>
                 );
-            case 'accepted':
+            case 'verified':
                 return (
                     <span className="absolute top-2 right-2 badge bg-green-500 text-white flex items-center gap-1 px-3 py-2 text-xs shadow">
-                        <MdCheckCircle /> Accepted
+                        <MdCheckCircle /> Verified
                     </span>
                 );
             case 'rejected':

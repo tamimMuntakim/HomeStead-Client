@@ -11,6 +11,7 @@ import MyProfile from "../Layouts/MyProfile";
 import MyAddedProperties from "../Pages/MyAddedProperties";
 import UpdatePropertyDetails from "../Pages/UpdatePropertyDetails";
 import ManageProperties from "../Pages/ManageProperties";
+import PropertyDetails from "../Pages/PropertyDetails";
 
 const router = createBrowserRouter(
     [
@@ -21,6 +22,10 @@ const router = createBrowserRouter(
                 {
                     path: "/",
                     element: <Home></Home>,
+                },
+                {
+                    path: "/property-details/:id",
+                    element: <PropertyDetails></PropertyDetails>,
                 },
             ]
         },

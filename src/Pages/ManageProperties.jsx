@@ -86,6 +86,7 @@ const ManageProperties = () => {
                                 {property.status === 'pending' ? (
                                     <div className="space-x-2">
                                         <button
+                                            disabled={updateStatusMutation.isPending}
                                             onClick={() =>
                                                 updateStatusMutation.mutate({
                                                     id: property._id,
@@ -97,6 +98,7 @@ const ManageProperties = () => {
                                             Verify
                                         </button>
                                         <button
+                                            disabled={updateStatusMutation.isPending}
                                             onClick={() =>
                                                 updateStatusMutation.mutate({
                                                     id: property._id,
