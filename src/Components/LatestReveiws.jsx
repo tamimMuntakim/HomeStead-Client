@@ -1,20 +1,13 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { useQuery } from '@tanstack/react-query';
 import { FaHouseUser } from "react-icons/fa";
 import LatestReviewCard from './LatestReviewCard';
-import useAxios from '../Hooks/useAxios';
+import useLatestReviews from '../Hooks/useLatestReviews';
+
 
 const LatestReviews = () => {
-    const axiosInstance = useAxios();
 
-    const { data: reviews = [], isLoading } = useQuery({
-        queryKey: ['latest-reviews'],
-        queryFn: async () => {
-            const res = await axiosInstance.get('/all-reviews');
-            return res.data;
-        }
-    });
+    const { data: reviews = [], isLoading } = useLatestReviews();
 
     if (isLoading) {
         return <div className="text-center text-white py-10 font-semibold">Loading latest reviews...</div>;

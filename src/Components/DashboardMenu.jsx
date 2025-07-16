@@ -14,6 +14,8 @@ const DashboardMenu = () => {
             <li><NavLink to="/dashboard/sold-properties" className="dash-menu-navs">My Sold Properties</NavLink></li>
             <li><NavLink to="/dashboard/offered-properties" className="dash-menu-navs">Offered Properties</NavLink></li>
             <li><NavLink to="/dashboard/manage-all-properties" className="dash-menu-navs">Manage Properties</NavLink></li>
+            <li><NavLink to="/dashboard/manage-users" className="dash-menu-navs">Manage Users</NavLink></li>
+            <li><NavLink to="/dashboard/manage-reviews" className="dash-menu-navs">Manage Reviews</NavLink></li>
         </ul>
     );
 };

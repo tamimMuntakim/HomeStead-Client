@@ -19,6 +19,8 @@ import MakeOffer from "../Pages/MakeOffer";
 import AllProperties from "../Pages/AllProperties";
 import OfferedProperties from "../Pages/OfferedProperties";
 import SoldProperties from "../Pages/SoldProperties";
+import ManageUsers from "../Pages/ManageUsers";
+import ManageReviews from "../Pages/ManageReviews";
 
 const router = createBrowserRouter(
     [
@@ -87,6 +89,14 @@ const router = createBrowserRouter(
                 {
                     path: "/dashboard/manage-all-properties",
                     element: <ManageProperties></ManageProperties>,
+                },
+                {
+                    path: "/dashboard/manage-users",
+                    element: <ManageUsers></ManageUsers>,
+                },
+                {
+                    path: "/dashboard/manage-reviews",
+                    element: <ManageReviews></ManageReviews>,
                 },
             ]
         },
