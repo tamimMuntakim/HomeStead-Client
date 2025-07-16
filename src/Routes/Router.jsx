@@ -17,6 +17,8 @@ import PropertiesBought from "../Pages/PropertiesBought";
 import MyReviews from "../Pages/MyReviews";
 import MakeOffer from "../Pages/MakeOffer";
 import AllProperties from "../Pages/AllProperties";
+import OfferedProperties from "../Pages/OfferedProperties";
+import SoldProperties from "../Pages/SoldProperties";
 
 const router = createBrowserRouter(
     [
@@ -73,6 +75,14 @@ const router = createBrowserRouter(
                 {
                     path: "/dashboard/update-property-details/:id",
                     element: <UpdatePropertyDetails></UpdatePropertyDetails>
+                },
+                {
+                    path: "/dashboard/sold-properties",
+                    element: <SoldProperties></SoldProperties>,
+                },
+                {
+                    path: "/dashboard/offered-properties",
+                    element: <OfferedProperties></OfferedProperties>,
                 },
                 {
                     path: "/dashboard/manage-all-properties",
