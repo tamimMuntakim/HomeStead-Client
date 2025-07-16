@@ -12,6 +12,10 @@ import MyAddedProperties from "../Pages/MyAddedProperties";
 import UpdatePropertyDetails from "../Pages/UpdatePropertyDetails";
 import ManageProperties from "../Pages/ManageProperties";
 import PropertyDetails from "../Pages/PropertyDetails";
+import MyWishlist from "../Pages/MyWishlist";
+import PropertiesBought from "../Pages/PropertiesBought";
+import MyReviews from "../Pages/MyReviews";
+import MakeOffer from "../Pages/MakeOffer";
 
 const router = createBrowserRouter(
     [
@@ -36,6 +40,22 @@ const router = createBrowserRouter(
                 {
                     index: true,
                     element: <MyProfile></MyProfile>,
+                },
+                {
+                    path: "/dashboard/my-wishlist",
+                    element: <MyWishlist></MyWishlist>,
+                },
+                {
+                    path: "/dashboard/make-offer/:id",
+                    element: <MakeOffer></MakeOffer>,
+                },
+                {
+                    path: "/dashboard/properties-bought",
+                    element: <PropertiesBought></PropertiesBought>,
+                },
+                {
+                    path: "/dashboard/my-reviews",
+                    element: <MyReviews></MyReviews>,
                 },
                 {
                     path: "/dashboard/add-property",
