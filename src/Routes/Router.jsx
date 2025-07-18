@@ -26,6 +26,7 @@ import ForbiddenPage from "../Pages/ForbiddenPage";
 import UserRoute from "../PrivateRoutes/UserRoute";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import AgentRoute from "../PrivateRoutes/AgentRoute";
+import Payment from "../Pages/Payment";
 
 
 const router = createBrowserRouter(
@@ -137,6 +138,10 @@ const router = createBrowserRouter(
                     element: <AdminRoute>
                         <ManageReviews></ManageReviews>
                     </AdminRoute>,
+                },
+                {
+                    path: "/dashboard/payment/:offerId",
+                    element: <Payment></Payment>,
                 },
             ]
         },

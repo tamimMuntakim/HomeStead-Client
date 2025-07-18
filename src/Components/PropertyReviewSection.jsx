@@ -4,10 +4,15 @@ import useAxios from '../Hooks/useAxios';
 import useAuth from '../Hooks/useAuth';
 import { formatDistanceToNow } from 'date-fns';
 import Swal from 'sweetalert2';
+import useUserRole from '../Hooks/useUserRole';
 
 const PropertyReviewSection = ({ propertyId, propertyTitle }) => {
     const axiosInstance = useAxios();
+
     const { user } = useAuth();
+
+    const { role, isLoading: roleLoading } = useUserRole(user.email);
+
     const queryClient = useQueryClient();
     const [reviewText, setReviewText] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -93,7 +98,9 @@ const PropertyReviewSection = ({ propertyId, propertyTitle }) => {
                     ) : (
                         <button
                             className="btn btn-primary btn-sm text-white"
-                            onClick={() => setIsModalOpen(true)}>
+                            onClick={() => setIsModalOpen(true)}
+                            disabled={roleLoading || role!== "user"}
+                        >
                             Add Review
                         </button>
                     )

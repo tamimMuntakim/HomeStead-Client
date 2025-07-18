@@ -1,4 +1,6 @@
 .navbar-navs.active {
-    border: 2px dashed #007FFF;
-    font-weight: 600;
+    border: 2px solid #a9d4ff;
+    background-color: #f2faff;
+    font-weight: bold;
+    color: #007FFF;
 }

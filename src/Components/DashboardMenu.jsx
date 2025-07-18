@@ -4,18 +4,17 @@ import { NavLink } from 'react-router';
 import useAuth from '../Hooks/useAuth';
 import useUserRole from '../Hooks/useUserRole';
 import {
-    MdPerson,
     MdFavorite,
     MdHome,
     MdReviews,
     MdAddHome,
     MdSell,
-    MdLocalOffer,
-    MdManageAccounts,
     MdPeople,
-    MdRateReview
+    MdRateReview,
+    MdManageHistory
 } from 'react-icons/md';
-import { FaClipboardList } from 'react-icons/fa';
+import { BiSolidOffer } from "react-icons/bi";
+import { FaClipboardList, FaHouseUser } from 'react-icons/fa';
 
 const DashboardMenu = () => {
     const { user } = useAuth();
@@ -29,7 +28,7 @@ const DashboardMenu = () => {
         <ul className="menu w-full text-center md:space-y-2">
             <li>
                 <NavLink to="/dashboard" className="dash-menu-navs" end>
-                    <MdPerson className="inline mr-1" /> My Profile
+                    <FaHouseUser className="inline mr-1" /> My Profile
                 </NavLink>
             </li>
 
@@ -74,7 +73,7 @@ const DashboardMenu = () => {
                     </li>
                     <li>
                         <NavLink to="/dashboard/offered-properties" className="dash-menu-navs">
-                            <MdLocalOffer className="inline mr-1" /> Offered Properties
+                            <BiSolidOffer className="inline mr-1" /> Offered Properties
                         </NavLink>
                     </li>
                 </>
@@ -85,7 +84,7 @@ const DashboardMenu = () => {
                 <>
                     <li>
                         <NavLink to="/dashboard/manage-all-properties" className="dash-menu-navs">
-                            <MdManageAccounts className="inline mr-1" /> Manage Properties
+                            <MdManageHistory className="inline mr-1" /> Manage Properties
                         </NavLink>
                     </li>
                     <li>

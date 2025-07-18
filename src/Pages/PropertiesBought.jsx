@@ -24,7 +24,7 @@ const PropertiesBought = () => {
     return (
         <>
             <h2 className="text-xl md:text-3xl font-bold mb-6 text-center text-primary mt-4 md:mt-8">
-                All Properties You Bought
+                Properties Bought
             </h2>
 
             {allOffers.length === 0 ? (

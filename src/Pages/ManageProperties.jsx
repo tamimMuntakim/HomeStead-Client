@@ -80,7 +80,7 @@ const ManageProperties = () => {
                             <td>{property.location}</td>
                             <td>{property.agentName} ({property.agentEmail})</td>
                             <td>
-                                ৳ {property.price.minPrice.toLocaleString()} - {property.price.maxPrice.toLocaleString()}
+                                $ {property.price.minPrice.toLocaleString()} - {property.price.maxPrice.toLocaleString()}
                             </td>
                             <td>
                                 {property.status === 'pending' ? (

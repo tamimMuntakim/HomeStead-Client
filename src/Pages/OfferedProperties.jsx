@@ -85,7 +85,7 @@ const OfferedProperties = () => {
                         <th>Location</th>
                         <th>Buyer Email</th>
                         <th>Buyer Name</th>
-                        <th>Offered Price (৳)</th>
+                        <th>Offered Price ($)</th>
                         <th>Status / Actions</th>
                     </tr>
                 </thead>

@@ -32,7 +32,7 @@ const AdvPropertyCard = ({ property }) => {
                 </h3>
 
                 <p className="text-md font-semibold mb-3">
-                    ৳ {price?.minPrice?.toLocaleString()} - {price?.maxPrice?.toLocaleString()}
+                    $ {price?.minPrice?.toLocaleString()} - {price?.maxPrice?.toLocaleString()}
                 </p>
 
                 <div className="flex items-center text-success-content text-sm font-medium mb-4">

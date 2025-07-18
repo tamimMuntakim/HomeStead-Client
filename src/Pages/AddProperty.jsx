@@ -127,7 +127,7 @@ const AddProperty = () => {
                 </div>
 
                 <div className="form-control mb-4">
-                    <label className="label font-semibold text-base">Price Range (৳)<span className='text-red-400'>*</span></label>
+                    <label className="label font-semibold text-base">Price Range ($)<span className='text-red-400'>*</span></label>
                     <div className='flex md:gap-2'>
                         <input type="number" name="minPrice" className="input input-bordered" placeholder='Minimum Price' required min={0}/>
                         <input type="number" name="maxPrice" className="input input-bordered" placeholder='Maximum Price' required min={0}/>

@@ -114,7 +114,7 @@ const UpdatePropertyDetails = () => {
                     <input value={user.email} readOnly className="input input-bordered w-full" />
                 </div>
                 <div className="form-control mb-4">
-                    <label className="label font-semibold">Price Range (৳)</label>
+                    <label className="label font-semibold">Price Range ($)</label>
                     <div className='flex gap-2'>
                         <input
                             type="number"

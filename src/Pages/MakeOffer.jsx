@@ -72,7 +72,7 @@ const MakeOffer = () => {
             return Swal.fire({
                 icon: 'error',
                 title: 'Invalid offer amount',
-                text: `Offer must be between ৳${minPrice.toLocaleString()} and ৳${maxPrice.toLocaleString()}`,
+                text: `Offer must be between $${minPrice.toLocaleString()} and $${maxPrice.toLocaleString()}`,
             });
         }
 
@@ -138,9 +138,9 @@ const MakeOffer = () => {
                 {/* Offer Amount */}
                 <div className="form-control mb-4">
                     <label className="label font-semibold">
-                        Offer Amount (৳)
+                        Offer Amount ($)
                         <span className="text-sm text-gray-500 ml-2">
-                            Range: ৳{minPrice.toLocaleString()} - ৳{maxPrice.toLocaleString()}
+                            Range: ${minPrice.toLocaleString()} - ${maxPrice.toLocaleString()}
                         </span>
                     </label>
                     <input

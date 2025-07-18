@@ -62,7 +62,7 @@ const AllPropertyCard = ({ property }) => {
                 </p>
                 <p className="flex items-center gap-2 text-sm text-gray-600">
                     <FaMoneyBillAlt className="text-green-600" />
-                    ৳ {price?.minPrice?.toLocaleString()} - ৳ {price?.maxPrice?.toLocaleString()}
+                    $ {price?.minPrice?.toLocaleString()} - $ {price?.maxPrice?.toLocaleString()}
                 </p>
 
                 <div className="flex items-center gap-2 mt-4">

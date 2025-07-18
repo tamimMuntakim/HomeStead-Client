@@ -15,6 +15,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import useAuth from '../Hooks/useAuth';
 import useAxios from '../Hooks/useAxios';
 import Swal from 'sweetalert2';
+import useUserRole from '../Hooks/useUserRole';
 
 const getStatusBadge = (status) => {
     switch (status) {
@@ -50,6 +51,9 @@ const PropertyDetails = () => {
     } = usePropertyById(id);
 
     const { user } = useAuth();
+
+    const {role, isLoading: roleLoading} = useUserRole(user.email);
+
     const axiosInstance = useAxios();
     const queryClient = useQueryClient();
 
@@ -150,7 +154,7 @@ const PropertyDetails = () => {
                         </p>
                         <p className="flex items-center gap-2 text-gray-600 text-sm">
                             <FaMoneyBillWave className="text-lg text-green-600" />
-                            ৳ {price.minPrice.toLocaleString()} - {price.maxPrice.toLocaleString()}
+                            $ {price.minPrice.toLocaleString()} - {price.maxPrice.toLocaleString()}
                         </p>
                         <div className='flex items-center gap-2'>
                             {getStatusBadge(status)}
@@ -180,7 +184,7 @@ const PropertyDetails = () => {
                         <button
                             className='btn btn-primary mt-6 w-full md:w-2/3 text-white btn-sm md:btn-md'
                             onClick={handleAddToWishlist}
-                            disabled={addToWishlistMutation.isPending}
+                            disabled={addToWishlistMutation.isPending || roleLoading || role!=="user"}
                         >
                             {addToWishlistMutation.isPending ? 'Adding...' : 'Add to Wishlist'}
                         </button>

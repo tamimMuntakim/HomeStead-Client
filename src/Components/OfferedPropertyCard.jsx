@@ -2,6 +2,8 @@ import React from 'react';
 import { MdLocationOn, MdCheckCircle, MdCancel, MdAccessTimeFilled } from 'react-icons/md';
 import { FaMoneyBillWave } from 'react-icons/fa';
 import { Link } from 'react-router';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const getStatusBadge = (status) => {
     switch (status) {
@@ -36,13 +38,13 @@ const getStatusBadge = (status) => {
 
 const OfferedPropertyCard = ({ offer }) => {
     const {
+        _id,
         propertyTitle,
         propertyLocation,
         propertyImage,
         agentName,
         offerAmount,
-        status,
-        propertyId
+        status
     } = offer;
 
     return (
@@ -62,18 +64,32 @@ const OfferedPropertyCard = ({ offer }) => {
                 </p>
                 <p className="flex items-center gap-2 text-sm text-gray-600">
                     <FaMoneyBillWave className="text-green-600" />
-                    Offer: ৳ {offerAmount.toLocaleString()}
+                    Offer: $ {offerAmount.toLocaleString()}
                 </p>
                 <p className="text-sm text-gray-600">Agent: {agentName}</p>
 
                 {status === 'accepted' && (
                     <div className="flex justify-end mt-4">
                         <Link
-                            to={`/dashboard/payment/${propertyId}`}
+                            to={`/dashboard/payment/${_id}`}
                             className="btn btn-sm btn-outline btn-success"
                         >
                             Pay Now
                         </Link>
+                    </div>
+                )}
+
+                {status === 'bought' && offer.transactionId && (
+                    <div className="flex justify-end mt-4">
+                        <span
+                            className="badge badge-success text-xs md:text-sm shadow-sm text-white cursor-pointer"
+                            data-tooltip-id={`txid-${offer._id}`}
+                            data-tooltip-content={offer.transactionId}
+                        >
+                            Txn ID: {offer.transactionId.slice(0, 5)}****{offer.transactionId.slice(-4)}
+                        </span>
+
+                        <Tooltip id={`txid-${offer._id}`} place="bottom" className='text-xs md:text-sm'/>
                     </div>
                 )}
             </div>
