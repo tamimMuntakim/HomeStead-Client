@@ -4,6 +4,8 @@ import useAxios from '../Hooks/useAxios';
 import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { MdCheckCircle, MdCancel } from 'react-icons/md';
+import { SiCashapp } from "react-icons/si";
+import useAgentOffers from '../Hooks/useAgentOffers';
 
 const getStatusBadge = (status) => {
     switch (status) {
@@ -25,6 +27,12 @@ const getStatusBadge = (status) => {
                     Pending
                 </span>
             );
+        case 'bought':
+            return (
+                <span className="badge bg-blue-600 text-white flex items-center gap-1 px-2 py-1 text-xs shadow">
+                    <SiCashapp /> Sold
+                </span>
+            );
         default:
             return null;
     }
@@ -35,15 +43,8 @@ const OfferedProperties = () => {
     const axiosInstance = useAxios();
     const queryClient = useQueryClient();
 
-    const { data: offers = [], isLoading, isError } = useQuery({
-        queryKey: ['agent-offers', user?.email],
-        queryFn: async () => {
-            if (!user?.email) return [];
-            const res = await axiosInstance.get(`/offers-by-agent?agentEmail=${user.email}`);
-            return res.data;
-        },
-        enabled: !!user?.email,
-    });
+
+    const { data: offers = [], isLoading, isError } = useAgentOffers();
 
     const updateStatusMutation = useMutation({
         mutationFn: async ({ offerId, status, propertyId }) => {
