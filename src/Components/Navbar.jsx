@@ -10,11 +10,50 @@ import useUserRole from '../Hooks/useUserRole';
 const Navbar = () => {
     const { user, logOut } = useAuth();
     const { role, isLoading: roleLoading } = useUserRole(user?.email);
+
+    // dashboard links for different roles
+    const dashboardLinks = {
+        admin: [
+            { to: "/dashboard/manage-all-properties", label: "Manage Properties" },
+            { to: "/dashboard/manage-users", label: "Manage Users" },
+            { to: "/dashboard/manage-reviews", label: "Manage Reviews" },
+        ],
+        agent: [
+            { to: "/dashboard/add-property", label: "My Added Properties" },
+            { to: "/dashboard/my-added-properties", label: "My Properties" },
+            { to: "/dashboard/sold-properties", label: "My Sold Properties" },
+            { to: "/dashboard/offered-properties", label: "Offered Properties" },
+        ],
+        user: [
+            { to: "/dashboard/my-wishlist", label: "My Wishlist" },
+            { to: "/dashboard/properties-bought", label: "Properties Bought" },
+            { to: "/dashboard/my-reviews", label: "My Reviews" },
+        ]
+    };
+
     const navLinks =
         <>
             <li><NavLink className="navbar-navs" to="/">Home</NavLink></li>
             <li><NavLink className="navbar-navs" to="/all-properties">All Properties</NavLink></li>
-            <li><NavLink className="navbar-navs" to="/dashboard">Dashboard</NavLink></li>
+
+            {/* Dashboard dropdown */}
+            <li className="dropdown dropdown-hover">
+                <NavLink tabIndex={0} role="button" end>Dashboard</NavLink>
+                {!roleLoading && role && (
+                    <ul className="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-48 shadow-lg">
+                        <li>
+                            <NavLink to="/dashboard" className="navbar-navs" end> My Profile
+                            </NavLink>
+                        </li>
+                        {dashboardLinks[role]?.map((link, idx) => (
+                            <li key={idx}>
+                                <NavLink className="navbar-navs" to={link.to}>{link.label}</NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </li>
+
             <li><NavLink className="navbar-navs" to="/about-us">About Us</NavLink></li>
             <li><NavLink className="navbar-navs" to="/contact-us">Contact Us</NavLink></li>
         </>
@@ -35,12 +74,15 @@ const Navbar = () => {
                 });
             });
     }
+
     return (
         <div className="navbar bg-white rounded-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden px-0 mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
                     </div>
                     <ul
                         tabIndex={0}
@@ -54,9 +96,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal gap-2 items-center">
-                    {
-                        navLinks
-                    }
+                    {navLinks}
                 </ul>
             </div>
 
