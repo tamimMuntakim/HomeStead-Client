@@ -53,14 +53,13 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="navbar-center hidden md:flex">
-                <ul className="menu menu-horizontal gap-2">
+                <ul className="menu menu-horizontal gap-2 items-center">
                     {
                         navLinks
                     }
                 </ul>
             </div>
 
-            {/* Right Section: Login Button */}
             <div className="navbar-end text-xs md:text-sm">
                 {user ?
                     (
