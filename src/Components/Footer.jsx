@@ -13,7 +13,7 @@ const Footer = () => {
                 <Link className="flex text-lg md:text-xl items-center" to={"/"}>
                     <Logo></Logo>
                 </Link>
-                <p className=''>Your all-in-one platform for seamless marathon planning and management.</p>
+                <p className=''>Your all-in-one platform for seamless property discovery and management.</p>
                 <p className='text-slate-400'>Copyright © {new Date().getFullYear()} - All right reserved by HomeStead Corporation Ltd.</p>
                 <nav className="flex flex-col gap-1 md:gap-2">
                     <Link className="link link-hover" to="/">Home</Link>

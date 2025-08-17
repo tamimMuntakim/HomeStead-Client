@@ -10,8 +10,8 @@
   name: "light";
   default: true;
   --color-primary: #007FFF;
-  /*  --color-secondary: #316DB0;
-  --color-accent: #DE333B; */
+  /*  --color-secondary: #316DB0; */
+  --color-accent: #314158;
 }
 
 * {

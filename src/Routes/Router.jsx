@@ -27,6 +27,8 @@ import UserRoute from "../PrivateRoutes/UserRoute";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
 import AgentRoute from "../PrivateRoutes/AgentRoute";
 import Payment from "../Pages/Payment";
+import AboutUs from "../Pages/AboutUs";
+import ContactUs from "../Pages/ContactUs";
 
 
 const router = createBrowserRouter(
@@ -54,6 +56,14 @@ const router = createBrowserRouter(
                 {
                     path: "/forbidden",
                     element: <ForbiddenPage></ForbiddenPage>,
+                },
+                {
+                    path: "/about-us",
+                    element: <AboutUs></AboutUs>,
+                },
+                {
+                    path: "/contact-us",
+                    element: <ContactUs></ContactUs>,
                 },
             ]
         },

@@ -1,23 +1,15 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-// Assuming your lottie file is in src/assets/banner_lottie.json
-// You might need to adjust the import path based on your exact file structure.
 import bannerLottie from '../assets/Lotties/banner_lottie.json';
 
 const Banner = () => {
-    // Define the height dynamically based on screen size
-    // For larger screens: min-height of viewport minus 82px (navbar height)
-    // For smaller screens: 60vh
     const bannerHeightClass = 'md:min-h-[calc(100vh-150px)] min-h-[60vh]';
 
     return (
         <section
             className={`relative bg-cover bg-center bg-no-repeat ${bannerHeightClass} flex items-center justify-center text-white`}
             style={{
-                // Replace 'your-dark-background-image.jpg' with your actual image path
-                // For now, using a dark background color as a placeholder
                 backgroundImage: 'url("https://i.ibb.co/4gJzFQwG/Home-Stead-banner.jpg")',
-                // Ensure the background is very dark, even if the image is light
                 backgroundColor: '#1a1a1a', // Fallback dark color
             }}
         >

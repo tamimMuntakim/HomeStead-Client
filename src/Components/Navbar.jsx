@@ -15,6 +15,8 @@ const Navbar = () => {
             <li><NavLink className="navbar-navs" to="/">Home</NavLink></li>
             <li><NavLink className="navbar-navs" to="/all-properties">All Properties</NavLink></li>
             <li><NavLink className="navbar-navs" to="/dashboard">Dashboard</NavLink></li>
+            <li><NavLink className="navbar-navs" to="/about-us">About Us</NavLink></li>
+            <li><NavLink className="navbar-navs" to="/contact-us">Contact Us</NavLink></li>
         </>
 
     const handleLogout = () => {
