@@ -24,7 +24,7 @@ const FeaturedAgents = () => {
             </h2>
             <div className="flex flex-wrap gap-6 px-4 justify-center items-center">
                 {agents.map(agent => (
-                    <div key={agent._id} className="card p-4 shadow-md rounded-lg text-center bg-base-100">
+                    <div key={agent._id} className="card p-4 shadow-md rounded-lg text-center bg-base-100  hover:shadow-xl transition">
                         <img
                             src="https://i.ibb.co.com/bg9g8j3H/agent.png"
                             alt={agent.userDisplayName}

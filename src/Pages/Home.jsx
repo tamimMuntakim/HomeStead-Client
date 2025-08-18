@@ -5,6 +5,7 @@ import LatestReviews from '../Components/LatestReveiws';
 import Faq from '../Components/Faq';
 import WhyChooseUs from '../Components/WhyChooseUs';
 import FeaturedAgents from '../Components/FeaturedAgent';
+import AvailableLocations from '../Components/AvailableLocations';
 
 const Home = () => {
     return (
@@ -20,6 +21,9 @@ const Home = () => {
             </section>
             <section id="featured-agents" className="w-11/12 md:container mx-auto rounded-md overflow-hidden mt-8 md:mt-16 shadow-xl">
                 <FeaturedAgents />
+            </section>
+            <section id="available-locations" className="w-11/12 md:container mx-auto rounded-md overflow-hidden mt-8 md:mt-16 shadow-xl">
+                <AvailableLocations/>
             </section>
             <section id="user-reviews" className='w-11/12 md:container mx-auto rounded-md overflow-hidden mt-8 md:mt-16 shadow-xl'>
                 <LatestReviews></LatestReviews>
