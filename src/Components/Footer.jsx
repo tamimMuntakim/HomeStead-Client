@@ -4,8 +4,12 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import Logo from './FooterLogo';
+import useAuth from '../Hooks/useAuth';
+import useUserRole from '../Hooks/useUserRole';
 
 const Footer = () => {
+    const { user } = useAuth();
+    const { role, isLoading: roleLoading } = useUserRole(user?.email);
 
     return (
         <footer className="footer sm:footer-horizontal text-neutral-content py-10 w-11/12 md:container mx-auto">
@@ -15,10 +19,16 @@ const Footer = () => {
                 </Link>
                 <p className=''>Your all-in-one platform for seamless property discovery and management.</p>
                 <p className='text-slate-400'>Copyright © {new Date().getFullYear()} - All right reserved by HomeStead Corporation Ltd.</p>
-                <nav className="flex flex-col gap-1 md:gap-2">
+                <nav className="flex flex-wrap gap-2 md:gap-4 justify-center items-center">
                     <Link className="link link-hover" to="/">Home</Link>
                     <Link className="link link-hover" to="/all-properties" >All Properties</Link>
-                    <Link className="link link-hover" to="/dashboard" >Dashboard</Link>
+                    {
+                        user && !roleLoading && role && (
+                            <Link className="link link-hover" to="/dashboard" >Dashboard</Link>
+                        )
+                    }
+                    <Link className="link link-hover" to="/about-us" >About Us</Link>
+                    <Link className="link link-hover" to="/contact-us" >Contact Us</Link>
                 </nav>
             </aside>
             <nav>

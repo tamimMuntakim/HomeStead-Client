@@ -36,23 +36,26 @@ const Navbar = () => {
             <li><NavLink className="navbar-navs" to="/">Home</NavLink></li>
             <li><NavLink className="navbar-navs" to="/all-properties">All Properties</NavLink></li>
 
-            {/* Dashboard dropdown */}
-            <li className="dropdown dropdown-hover">
-                <NavLink tabIndex={0} role="button" end>Dashboard</NavLink>
-                {!roleLoading && role && (
-                    <ul className="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-48 shadow-lg">
-                        <li>
-                            <NavLink to="/dashboard" className="navbar-navs" end> My Profile
-                            </NavLink>
-                        </li>
-                        {dashboardLinks[role]?.map((link, idx) => (
-                            <li key={idx}>
-                                <NavLink className="navbar-navs" to={link.to}>{link.label}</NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </li>
+            {
+                user && (
+                    <li className="dropdown dropdown-hover">
+                        <NavLink tabIndex={0} role="button" end>Dashboard</NavLink>
+                        {!roleLoading && role && (
+                            <ul className="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-48 shadow-lg">
+                                <li>
+                                    <NavLink to="/dashboard" className="navbar-navs" end> My Profile
+                                    </NavLink>
+                                </li>
+                                {dashboardLinks[role]?.map((link, idx) => (
+                                    <li key={idx}>
+                                        <NavLink className="navbar-navs" to={link.to}>{link.label}</NavLink>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </li>
+                )
+            }
 
             <li><NavLink className="navbar-navs" to="/about-us">About Us</NavLink></li>
             <li><NavLink className="navbar-navs" to="/contact-us">Contact Us</NavLink></li>
@@ -90,11 +93,11 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link className="flex text-lg md:text-xl items-center" to={"/"}>
+                <Link className="flex text-lg md:text-xl items-center ml-0" to="/">
                     <Logo></Logo>
                 </Link>
             </div>
-            <div className="navbar-center hidden md:flex">
+            <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal gap-2 items-center">
                     {navLinks}
                 </ul>
@@ -106,9 +109,10 @@ const Navbar = () => {
                         <>
                             <a data-tooltip-id="my-tooltip" data-tooltip-content={
                                 roleLoading ? user.displayName : `${user.displayName} - ${role}`
-                            }>
+                            }
+                            >
                                 <div className="avatar avatar-online">
-                                    <div className="w-7 md:w-9 h-auto rounded-full">
+                                    <div className="w-6 sm:w-7 md:w-9 h-auto rounded-full">
                                         <img src={user.photoURL} />
                                     </div>
                                 </div>

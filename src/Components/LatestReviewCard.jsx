@@ -33,15 +33,6 @@ const LatestReviewCard = ({review}) => {
             <p className="text-gray-700 leading-relaxed mb-2 md:mb-4 italic text-sm md:text-base">
                 "{reviewText}"
             </p>
-
-            {/* You could add a star rating here if you expand the data later */}
-            <div className="rating rating-sm">
-                <input type="radio" name="rating-2" className="text-xs md:text-sm mask mask-star-2 bg-orange-400" checked disabled />
-                <input type="radio" name="rating-2" className="text-xs md:text-sm mask mask-star-2 bg-orange-400" disabled />
-                <input type="radio" name="rating-2" className="text-xs md:text-sm mask mask-star-2 bg-orange-400" disabled />
-                <input type="radio" name="rating-2" className="text-xs md:text-sm mask mask-star-2 bg-orange-400" disabled />
-                <input type="radio" name="rating-2" className="text-xs md:text-sm mask mask-star-2 bg-orange-400" disabled />
-            </div>
         </div>
     );
 };

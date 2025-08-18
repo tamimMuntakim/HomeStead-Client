@@ -32,14 +32,20 @@ const MyProfile = () => {
         <div className="max-w-md mx-auto bg-white shadow-xl rounded-lg p-6 mt-8">
             <div className="flex flex-col items-center text-center">
                 <img
-                    src={user?.photoURL || 'https://i.ibb.co/KxV3xWSC/icons8-user-96.png'}
+                    src={user?.photoURL || 'https://placehold.co/150x150/cccccc/333333?text=User'}
                     alt="User Profile"
                     className="w-16 h-1w-16 md:w-24 md:h-24 rounded-full object-cover border-2 border-primary"
                 />
                 <h2 className="text-lg md:text-2xl font-semibold mt-4">{user?.displayName || 'Anonymous User'}</h2>
-                <div className="mt-2">
+                <div className="mt-2 space-x-2">
                     <span className={getRoleStyle(role)}>
                         {role?.charAt(0).toUpperCase() + role?.slice(1)}
+                    </span>
+                    <span
+                        className={`badge ${user?.emailVerified ? 'badge-success' : 'badge-error'
+                            } text-white badge-sm md:badge-md`}
+                    >
+                        {user?.emailVerified ? 'Email Verified' : 'Not Verified'}
                     </span>
                 </div>
             </div>

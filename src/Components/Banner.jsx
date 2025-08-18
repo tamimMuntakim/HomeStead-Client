@@ -1,6 +1,8 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import bannerLottie from '../assets/Lotties/banner_lottie.json';
+import { Link } from 'react-router';
+import { FaSearch } from 'react-icons/fa';
 
 const Banner = () => {
     const bannerHeightClass = 'md:min-h-[calc(100vh-150px)] min-h-[60vh]';
@@ -10,7 +12,7 @@ const Banner = () => {
             className={`relative bg-cover bg-center bg-no-repeat ${bannerHeightClass} flex items-center justify-center text-white`}
             style={{
                 backgroundImage: 'url("https://i.ibb.co/4gJzFQwG/Home-Stead-banner.jpg")',
-                backgroundColor: '#1a1a1a', // Fallback dark color
+                backgroundColor: '#1a1a1a',
             }}
         >
             <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -29,9 +31,9 @@ const Banner = () => {
                         Discover, manage, and thrive in the perfect property with HomeStead.
                         Seamless solutions for every step of your real estate journey.
                     </p>
-                    <button className="btn btn-primary btn-sm md:btn-md shadow-xl hover:scale-105 transition-transform duration-300 text-white">
-                        Explore Properties
-                    </button>
+                    <Link to="/all-properties" className="btn btn-primary btn-sm md:btn-md shadow-xl text-white"> 
+                        Explore Properties <FaSearch />
+                    </Link>
                 </div>
             </div>
         </section>
