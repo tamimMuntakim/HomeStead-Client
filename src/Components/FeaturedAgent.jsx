@@ -18,13 +18,13 @@ const FeaturedAgents = () => {
     if (isError) return <p className="text-center py-10 text-red-500">Failed to load agents.</p>;
 
     return (
-        <section className="py-10 bg-primary">
-            <h2 className="text-2xl md:text-4xl font-bold text-center text-white mb-6 flex items-center justify-center">
+        <section className="py-10 bg-base-100">
+            <h2 className="text-2xl md:text-4xl font-bold text-center text-primary mb-6 flex items-center justify-center">
                 Our Featured Agents <MdRealEstateAgent className='hidden md:inline ml-1 md:ml-2'/>
             </h2>
             <div className="flex flex-wrap gap-6 px-4 justify-center items-center">
                 {agents.map(agent => (
-                    <div key={agent._id} className="card p-4 shadow-md rounded-lg text-center bg-base-100  hover:shadow-xl transition">
+                    <div key={agent._id} className="card p-4 shadow-md rounded-lg text-center">
                         <img
                             src="https://i.ibb.co.com/bg9g8j3H/agent.png"
                             alt={agent.userDisplayName}

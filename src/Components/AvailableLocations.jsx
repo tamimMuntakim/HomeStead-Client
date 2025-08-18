@@ -12,14 +12,14 @@ const AvailableLocations = () => {
 
     return (
         <section className="py-10 bg-white">
-            <h2 className="text-2xl md:text-4xl font-bold text-center text-primary mb-6 flex items-center justify-center">
+            <h2 className="text-2xl md:text-4xl font-bold text-center text-accent mb-6 flex items-center justify-center">
                 Available Locations <MdLocationOn className="hidden md:inline ml-2" />
             </h2>
             <div className="flex flex-wrap justify-center gap-2 md:gap-4 px-4">
                 {uniqueLocations.map((loc, idx) => (
                     <div
                         key={idx}
-                        className="px-4 py-2 bg-primary text-white rounded-lg shadow-md text-xs md:text-base font-medium  hover:shadow-xl transition text-center"
+                        className="px-3 py-1 md:px-4 md:py-2 bg-primary text-white rounded-lg shadow-md text-xs md:text-base font-medium  hover:shadow-xl transition text-center"
                     >
                         {loc}
                     </div>
